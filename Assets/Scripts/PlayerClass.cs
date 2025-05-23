@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +59,20 @@ public class PlayerClass : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             FindObjectOfType<MainLogic>()?.GetDamage();
+            DoDelayAction(1f);
         }
+    }
+    void DoDelayAction(float delayTime)
+    {
+        StartCoroutine(DelayAction(delayTime));
+    }
+
+    private IEnumerator DelayAction(float delayTime)
+    {
+        
+        yield return new WaitForSeconds(delayTime);
+
+        
     }
 }
  

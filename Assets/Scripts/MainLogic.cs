@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,13 +55,15 @@ public class MainLogic : MonoBehaviour
     {
         hp -= 1;
         Debug.Log($"HP: {hp}");
-
+        
         if (hp < 0)
         {
+            Time.timeScale = 0f;
             ShowGameOverUI();
         }
+       
     }
-
+ 
     private void TogglePause()
     {
         isPaused = !isPaused;
